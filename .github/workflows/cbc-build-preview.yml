@@ -34,3 +34,81 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+
+  ami-builder2-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder2-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder-plan]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder3-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder3-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder2-plan]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder4-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder4-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder3-plan]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder5-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder5-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder4-plan]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder6-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder6-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder5-plan]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder7-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder7-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder6-plan]
+
+    with:
+      environment: ${{ inputs.environment }}
