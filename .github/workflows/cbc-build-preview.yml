@@ -17,6 +17,7 @@ jobs:
       environment_module: pki
 
   pki-apply:
+    run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
     uses: ./.github/workflows/apply.yml
     needs: [pki-plan]
 
