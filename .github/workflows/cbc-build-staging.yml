@@ -22,15 +22,93 @@ jobs:
     with:
       environment: ${{ inputs.environment }}
 
-  ami-builder-plan:
+  ami-builder1-plan:
     uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
 
-  ami-builder-apply:
+  ami-builder1-apply:
     uses: ./.github/workflows/apply.yml
-    needs: [ami-builder-plan]
+    needs: [ami-builder1-plan,pki-apply]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder2-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder2-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder2-plan,ami-builder1-apply]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder3-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder3-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder3-plan,ami-builder2-apply]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder4-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder4-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder4-plan,ami-builder3-apply]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder5-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder5-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder5-plan,ami-builder4-apply]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder6-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder6-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder6-plan,ami-builder5-apply]
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder7-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+
+  ami-builder7-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder7-plan, ami-builder6-apply]
 
     with:
       environment: ${{ inputs.environment }}
