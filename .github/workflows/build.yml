@@ -5,20 +5,20 @@ on:
 
 jobs:
   preview-plan:
-    uses: ./.github/workflows/plan.yml
+    uses: ./.github/workflows/test/plan.yml
 
     with:
       environment: preview
 
   preview-apply:
-    uses: ./.github/workflows/apply.yml
+    uses: ./.github/workflows/test/apply.yml
     needs: [preview-plan]
 
     with:
       environment: preview
 
   staging-plan:
-    uses: ./.github/workflows/plan.yml
+    uses: ./.github/workflows/test/plan.yml
 
     with:
       environment: staging
@@ -31,13 +31,13 @@ jobs:
       environment: staging
 
   production-plan:
-    uses: ./.github/workflows/plan.yml
+    uses: ./.github/workflows/test/plan.yml
 
     with:
       environment: production
 
   production-apply:
-    uses: ./.github/workflows/apply.yml
+    uses: ./.github/workflows/test/apply.yml
     needs: [staging-apply,production-plan]
 
     with:
