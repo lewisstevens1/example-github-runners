@@ -17,7 +17,7 @@ jobs:
 
   ami-builder1-apply:
     uses: ./.github/workflows/apply.yml
-    needs: [ami-builder1-plan,pki-apply]
+    needs: [ami-builder1-plan]
 
     with:
       environment: ${{ inputs.environment }}
