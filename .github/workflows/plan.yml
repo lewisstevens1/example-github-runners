@@ -18,4 +18,11 @@ jobs:
 
       - name: List everything
         run: |
-          ls -la
+          touch ${{ inputs.environment }}.tfplan
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.environment }}
+          path: ${{ inputs.environment }}.tfplan
+          retention-days: 5
