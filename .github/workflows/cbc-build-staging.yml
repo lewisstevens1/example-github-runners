@@ -7,10 +7,10 @@ on:
       environment:
         required: true
         type: string
-    environment_module:
-      required: false
-      type: string
-      default: "general"
+      environment_module:
+        required: false
+        type: string
+        default: "general"
 
 jobs:
   pki-plan:
