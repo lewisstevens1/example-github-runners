@@ -1,0 +1,25 @@
+name: cbc-build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  preview:
+    uses: ./.github/workflows/cbc-build-preview.yml
+
+    with:
+      environment: preview
+
+  staging:
+    uses: ./.github/workflows/cbc-build-staging.yml
+    needs: [preview]
+
+    with:
+      environment: staging
+
+  production:
+    uses: ./.github/workflows/cbc-build-production.yml
+    needs: [preview,staging]
+
+    with:
+      environment: production
