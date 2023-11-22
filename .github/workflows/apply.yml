@@ -1,4 +1,4 @@
-name: apply
+name: ${{ inputs.environment_module }}-apply
 
 on:
   workflow_call:

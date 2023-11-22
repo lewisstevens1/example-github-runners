@@ -1,4 +1,4 @@
-name: plan
+name: ${{ inputs.environment_module }}-plan
 
 on:
   workflow_call:
