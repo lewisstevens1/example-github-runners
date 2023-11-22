@@ -1,6 +1,7 @@
 name: cbc-build-preview
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       environment:
@@ -21,7 +22,7 @@ jobs:
       environment: ${{ inputs.environment }}
 
   ami-builder-plan:
-    uses: ./.github/workflows/apply.yml
+    uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
