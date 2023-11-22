@@ -17,6 +17,7 @@ jobs:
 
   pki-apply:
     uses: ./.github/workflows/apply.yml
+    needs: [pki-plan]
 
     with:
       environment: ${{ inputs.environment }}
