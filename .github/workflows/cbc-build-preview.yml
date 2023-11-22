@@ -7,6 +7,10 @@ on:
       environment:
         required: true
         type: string
+    environment_module:
+      required: false
+      type: string
+      default: "general"
 
 jobs:
   pki-plan:
@@ -14,6 +18,7 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: pki
 
   pki-apply:
     uses: ./.github/workflows/apply.yml
@@ -21,12 +26,14 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: pki
 
   ami-builder1-plan:
     uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder1
 
   ami-builder1-apply:
     uses: ./.github/workflows/apply.yml
@@ -34,12 +41,14 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder1
 
   ami-builder2-plan:
     uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder2
 
   ami-builder2-apply:
     uses: ./.github/workflows/apply.yml
@@ -47,12 +56,14 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder2
 
   ami-builder3-plan:
     uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder3
 
   ami-builder3-apply:
     uses: ./.github/workflows/apply.yml
@@ -60,12 +71,14 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder3
 
   ami-builder4-plan:
     uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder4
 
   ami-builder4-apply:
     uses: ./.github/workflows/apply.yml
@@ -73,12 +86,14 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder4
 
   ami-builder5-plan:
     uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder5
 
   ami-builder5-apply:
     uses: ./.github/workflows/apply.yml
@@ -86,12 +101,14 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder5
 
   ami-builder6-plan:
     uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder6
 
   ami-builder6-apply:
     uses: ./.github/workflows/apply.yml
@@ -99,12 +116,14 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder6
 
   ami-builder7-plan:
     uses: ./.github/workflows/plan.yml
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder7
 
   ami-builder7-apply:
     uses: ./.github/workflows/apply.yml
@@ -112,3 +131,4 @@ jobs:
 
     with:
       environment: ${{ inputs.environment }}
+      environment_module: ami-builder7
