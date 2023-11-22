@@ -13,7 +13,7 @@ on:
 
 jobs:
   apply:
-    name: ${{ inputs.environment_module }}-apply
+    name: apply-${{ inputs.environment_module }}
     environment: ${{ inputs.environment }}-apply
     runs-on: ubuntu-latest
     steps:
