@@ -12,7 +12,7 @@ on:
         default: "general"
 
 jobs:
-  ${{ inputs.environment_module }}-apply:
+  apply:
     environment: ${{ inputs.environment }}-apply
     runs-on: ubuntu-latest
     steps:

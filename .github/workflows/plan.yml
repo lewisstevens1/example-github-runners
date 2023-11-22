@@ -12,7 +12,7 @@ on:
         default: "general"
 
 jobs:
-  ${{ inputs.environment_module }}-plan:
+  plan:
     environment: ${{ inputs.environment }}-plan
     runs-on: ubuntu-latest
     steps:
