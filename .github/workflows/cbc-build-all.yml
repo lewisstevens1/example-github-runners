@@ -19,7 +19,7 @@ jobs:
 
   production:
     uses: ./.github/workflows/cbc-build-production.yml
-    needs: [preview,staging]
+    needs: [staging]
 
     with:
       environment: production
