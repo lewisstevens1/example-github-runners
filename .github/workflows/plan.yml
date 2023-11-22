@@ -6,7 +6,10 @@ on:
       environment:
         required: true
         type: string
-
+      environment_module:
+        required: false
+        type: string
+        default: "general"
 
 jobs:
   plan:
@@ -18,11 +21,11 @@ jobs:
 
       - name: List everything
         run: |
-          touch ${{ inputs.environment }}.tfplan
+          touch ${{ inputs.environment }}-${{ inputs.environment_module }}.tfplan
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ inputs.environment }}
-          path: ${{ inputs.environment }}.tfplan
+          name: ${{ inputs.environment }}-${{ inputs.environment_module }}
+          path: ${{ inputs.environment }}-${{ inputs.environment_module }}.tfplan
           retention-days: 5

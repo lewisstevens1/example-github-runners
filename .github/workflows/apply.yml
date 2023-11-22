@@ -6,7 +6,10 @@ on:
       environment:
         required: true
         type: string
-
+      environment_module:
+        required: false
+        type: string
+        default: "general"
 
 jobs:
   apply:
@@ -19,7 +22,7 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ inputs.environment }}
+          name: ${{ inputs.environment }}-${{ inputs.environment_module }}
 
       - name: List everything
         run: |
