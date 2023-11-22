@@ -1,4 +1,4 @@
-name: cbc-build-preview
+name: cbc-build-production
 
 on:
   workflow_dispatch:
