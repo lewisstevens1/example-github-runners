@@ -1,0 +1,21 @@
+name: apply
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+
+jobs:
+  apply:
+    environment: ${{ inputs.environment }}-apply
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: List everything
+        run: |
+          ls -la
