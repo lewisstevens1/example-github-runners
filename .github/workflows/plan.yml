@@ -20,7 +20,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: List everything
+      - name: Create tfvars file
         run: |
           touch ${{ inputs.environment }}-${{ inputs.environment_module }}.tfplan
 

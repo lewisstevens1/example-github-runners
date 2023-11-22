@@ -1,7 +1,6 @@
 name: cbc-build-preview
 
 on:
-  workflow_dispatch:
   workflow_call:
     inputs:
       environment:
@@ -9,21 +8,6 @@ on:
         type: string
 
 jobs:
-  pki-plan:
-    uses: ./.github/workflows/plan.yml
-
-    with:
-      environment: ${{ inputs.environment }}
-      environment_module: pki
-
-  pki-apply:
-    uses: ./.github/workflows/apply.yml
-    needs: [pki-plan]
-
-    with:
-      environment: ${{ inputs.environment }}
-      environment_module: pki
-
   ami-builder1-plan:
     uses: ./.github/workflows/plan.yml
 
@@ -124,6 +108,21 @@ jobs:
   ami-builder7-apply:
     uses: ./.github/workflows/apply.yml
     needs: [ami-builder7-plan, ami-builder6-apply]
+
+    with:
+      environment: ${{ inputs.environment }}
+      environment_module: ami-builder7
+
+  ami-builder8-plan:
+    uses: ./.github/workflows/plan.yml
+
+    with:
+      environment: ${{ inputs.environment }}
+      environment_module: ami-builder8
+
+  ami-builder8-apply:
+    uses: ./.github/workflows/apply.yml
+    needs: [ami-builder8-plan, ami-builder7-apply]
 
     with:
       environment: ${{ inputs.environment }}
